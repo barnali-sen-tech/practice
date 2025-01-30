@@ -7,13 +7,14 @@ import ParentComponentUseCallback from "./useCallbackusage/ParentComponentUseCal
 import UseMemoUsageCounter from "./useMemoUsage/UseMemoUsageCounter";
 import CounterUseReducer from "./useReducerUsage/CounterUseReducer";
 import UseRefFile from "./useRefUsage/UseRefFile";
-import FocusInputUsingClass from "./useRefUsage/Focus InputUsingClass";
+import FocusInputUsingClass from "./useRefUsage/FocusInputUsingClass";
 import ForwardRefParent from "./useRefUsage/ForwardRefParent";
 import ParentUser from "./classUsage/ParentUser";
 import PortalDemo from "./PortalDemo";
-import TodoInput from "./components/TodoInput";
-import TodoList1 from "./components/TodoList1";
-import TodoEdit from "./components/TodoEdit";
+// import TodoInput from "./components/TodoInput";
+// import TodoList1 from "./components/TodoList1";
+// import TodoEdit from "./components/TodoEdit";
+import StateLiftingParent from "./stateLifting/StateLiftingParent";
 
 function App() {
   const [userName, setUserName] = useState();
@@ -23,40 +24,40 @@ function App() {
     };
     setUserName(data.name);
   }, []);
-  const [listTodo, setlistTodo] = useState([]);
-  const [editFlag, setEditFlag] = useState(false);
-  const addList = (inputText) => {
-    setEditFlag(false);
-    setlistTodo([...listTodo, inputText]);
-  };
-  const addListByIndex = (inputText, index) => {
-    console.log("addListByIndex", inputText, index);
-    setEditFlag(true);
-    listTodo.map((item, ind) => {
-      if (index === ind) {
-        listTodo.splice(ind, 1, inputText);
-        console.log("listTodo", listTodo);
-      }
-    });
-  };
+  // const [listTodo, setlistTodo] = useState([]);
+  // const [editFlag, setEditFlag] = useState(false);
+  // const addList = (inputText) => {
+  //   setEditFlag(false);
+  //   setlistTodo([...listTodo, inputText]);
+  // };
+  // const addListByIndex = (inputText, index) => {
+  //   console.log("addListByIndex", inputText, index);
+  //   setEditFlag(true);
+  //   listTodo.map((item, ind) => {
+  //     if (index === ind) {
+  //       listTodo.splice(ind, 1, inputText);
+  //       console.log("listTodo", listTodo);
+  //     }
+  //   });
+  // };
 
-  const deleteitem = (index) => {
-    let newlist = [...listTodo];
-    newlist.splice(index, 1);
-    setlistTodo([...newlist]);
-  };
+  // const deleteitem = (index) => {
+  //   let newlist = [...listTodo];
+  //   newlist.splice(index, 1);
+  //   setlistTodo([...newlist]);
+  // };
 
-  const [editedItem, setEditedItem] = useState("");
-  const [editedIndex, setEditedIndex] = useState();
+  // const [editedItem, seteditedItem] = useState("");
+  // const [editedIndex, setEditedIndex] = useState();
 
-  const edititem = (index) => {
-    setEditedItem(listTodo[index]);
-    setEditedIndex(index);
-  };
+  // const edititem = (index) => {
+  //   seteditedItem(listTodo[index]);
+  //   setEditedIndex(index);
+  // };
 
   return (
     <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-      <Todo Input addList={addList} editedItem={editedItem} />
+      {/* <TodoInput addList={addList} editedItem={editedItem} />
       editFlag={editFlag}
       seteditedItem={seteditedItem}
       addListByIndex={addListByIndex}
@@ -73,7 +74,7 @@ function App() {
               setEditFlag={setEditFlag}
             />
           );
-        })}
+        })} */}
       <h1>{/* <ContextApiUse /> */}</h1>
       {/* <ParentComponentUseCallback/> 
       <useMemoUsageCounter/> 
@@ -83,6 +84,7 @@ function App() {
       {/* <ForwardRefParent/> */}
       {/* <ParentUser/> */}
       {/* <PortalDemo/> */}
+      <StateLiftingParent/>
     </UserContext.Provider>
   );
 }

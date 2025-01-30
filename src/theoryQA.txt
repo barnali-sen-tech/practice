@@ -1,0 +1,163 @@
+#Children prop 
+
+---->it is a special property in react used to pass the content that is nested inside a component. 
+
+#app.js-> 
+
+<containerComponet> 
+
+<p>hi there..</p> 
+</containerComponet>
+
+containerComponet.js
+return 
+ 
+{props.children} 
+
+#Default props->without passing any prop during calling the Greeting component. 
+
+Greeting.js 
+
+function Greeting(props) { 
+
+ 
+return <h1>hello, {props.name} 
+ 
+} 
+
+Greeting.defaultProps={ 
+ 
+name: "barnali" 
+
+} 
+App.js
+<Greeting/>
+
+
+# Fragment allows to group multiple elements without adding extra nodes to the DOM. 
+#key prop is a uinique identifier for each element in the list too identify 
+which items have changed, removed, added.
+
+using indexes as a key produce performance isuue and unexpeted beha,
+ when list items are reordered/removed.should be unique and stable.
+  (if in a list using index, now want to add items at the top of the list
+   then the new items will be with index and so on, all the other items will be rerender unnecessaryly.)
+
+#prop drilling occurs when you pass data through many layers of components. avoided using contet api/redux. 
+
+#How can useRef be used to staore mutable values? 
+---useRef can store any mutable values and changes to the ref do not cause re-renders. 
+function counter() { 
+const countRef-useRef (0) 
+const inc=()=>{ 
+countRef.current +=1; 
+console.log(countRef.current) 
+} return <buttononClick={inc}>inc</button> 
+} 
+#implement useFetch custom hook-> 
+--->useFetch.js
+
+function useFetch(url) { 
+
+const [data, setData] = useState(null) 
+const [loading, setloading]= useState(true) 
+
+useEffect(()=>{ 
+async function fetchData(){ 
+try{ 
+const res await fetch(url) 
+const result= await res.json() 
+ 
+setData(result) 
+} 
+catch(error) { 
+log(error) 
+ 
+} 
+ 
+finally{ 
+setloading(false) 
+} 
+} 
+
+fetchData(); 
+}, [url]) 
+return {data, loading}
+}
+dataComponent-> 
+const (data, loading)= useFetch("http..") 
+if(loading) return <p>loading</p> 
+if(Idata) return <p>no data</> 
+return(<> 
+{data.title} 
+</>) 
+#react router dom-> 
+it is a routing lib built on top of react router.enables dynamic routing in web applications, allowing to define routes and navigate btw diff components without reloading page. 
+#basic route 
+is created using Route component, which maps a url path to a specufic element. 
+<Route path="/home" element={<Home/>}/> 
+<BrowserRouter>---it is like a provider.we need to wrap out entire app within this. 
+<Routes>-->this helps to switch btw one page to another, where ony the first matching route is render 
+<Route path="/home" element=(<Home/>}/> 
+<Route path="/login" element={<Login/>}/> 
+</Routes> 
+</Browser Router> 
+think in the webpage there is links of home login-> 
+Link com used to create navigation link. 
+const navigation=()->{ 
+<nav> 
+<Link to-"/home">Home</Link> 
+<Link to="/login">Login</Link> 
+</nav> 
+Dynamic routing 
+const User=()=>{ 
+const {userId}= useParams(); 
+return <div>{userId}</div> 
+}
+<Route path="/user/:userId" element={<User/>} 
+#redirect in react router dom->
+using navigate----> 
+const Login=()=>{ 
+const isloggedin= true; 
+if(isloggedin) { 
+return <Navigate to ="/home"/> } 
+return <div>please login</div> 
+} 
+#Nested routes-> 
+const Dashboard=()=>{ 
+<div> 
+<h1>Dashboard</h1> 
+<Outlet/>-->check that if there are any nested route 
+</div> 
+} 
+const App=()=>{ 
+<Routes> 
+<Route path="/dashboard" element={<Dashboard/}> 
+<Routes path="/profile" element={<Profile/}/> <Route path="/setting" element={<Setting/}/> 
+</Route>
+</Routes>
+}
+#How to programatically navigate ? 
+const navigate=useNavigate() 
+const handleLogin=()=>{ 
+} 
+navigate("/home") 
+return <button onClick={handleLogin}>Login</button> 
+#controlled components in react 
+-> where the form data is handled by the react state. 
+#uncontrolled component 
+->where the form data is handled by the DOM itself. (usinng ref) 
+#code splitting-> 
+It is a feature that allows you to split code into various bundles which can be then loaded on demand. 
+#render props-> 
+it is technique for sahring code btw react components using a prop whose value is a function.it returns a react element and is used by the component to render part of it's output. 
+const MyComp=({renderProp})=>{
+    return(
+        {renderprop()}
+    )
+}
+const App =()=>{
+    return(
+        <MyComp renderProp={()=><p>Hello</p>}
+    )
+}

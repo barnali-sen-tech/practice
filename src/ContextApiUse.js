@@ -1,7 +1,7 @@
 import React from "react";
-2;
+
 import UserContext from "./UserContext";
-3;
+
 import { useContext, useEffect, useState } from "react";
 const ContextApiUse = (props) => {
   const { loggedInUser, setUserName } = useContext(UserContext);

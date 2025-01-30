@@ -8,7 +8,6 @@ const UseMemoUsageCounter = () => {
   const incCounter2 = () => {
     setCounter2(counter2 + 1);
   };
-  I;
   const isEven = useMemo(() => {
     let i = 0;
     while (i < 200000000000) {
