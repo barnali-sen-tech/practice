@@ -1,0 +1,30 @@
+server side rendering &csr,seo,performance
+
+
+routing and role based access control
+->react router
+->protected routes(profile route will only be accessible by logged in user)
+query params
+dynamic routing
+
+
+testing
+->react testing libs
+
+async tasks->(promises,callbak hell,promise chaining)
+api calls(fetch,axios,settimeout,setinterval),events
+
+why you are making hoc->
+reusable,modularity,testability
+
+
+optimize js,css
+
+
+create react app gives us bundlers(webpack), setup of tesing(ready to  go live applicaion).
+inside public folder->contents that out application needs.
+manifest.json->helps to create pws(progressive web application)
+robots.txt->helps seo and to make your website crawable to search engine.
+node modules->has all the dependencies of our project.the libs are used by react webpack.
+
+
