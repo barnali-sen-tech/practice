@@ -1,0 +1,12 @@
+.block{
+    display: block;
+}
+
+.hidden{
+    display: none;  
+}
+
+.imageSize{
+    width: 100px;
+    height: 100px;
+}

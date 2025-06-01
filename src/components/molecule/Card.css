@@ -1,0 +1,11 @@
+.container-fluid{
+    /* display: flex; */
+    flex-direction: row;
+    margin: 10px;
+}
+
+.container{
+    height: 300px;
+    width: 300px;
+    border: 1px solid black;
+}

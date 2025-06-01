@@ -1,0 +1,12 @@
+axios.get('url').then((response)=>response.data).catch((error)=>error)
+
+
+axios.post('url', { title: "barnali" }).then((response)=>response.data).catch((error)=>error) 
+
+
+fetch('url').then((res)=>res.json).then((data)=>data.id).catch((error)=>error) 
+
+
+
+fetch('url', { method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({ title: "barnali" }) I 
+})

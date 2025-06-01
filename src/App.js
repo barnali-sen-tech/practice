@@ -1,28 +1,30 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import UserContext from "./UserContext";
 import { useContext, useEffect, useState } from "react";
-import ContextApiUse from "./ContextApiUse";
-import ParentComponentUseCallback from "./useCallbackusage/ParentComponentUseCallback";
-import UseMemoUsageCounter from "./useMemoUsage/UseMemoUsageCounter";
-import CounterUseReducer from "./useReducerUsage/CounterUseReducer";
-import UseRefFile from "./useRefUsage/UseRefFile";
-import FocusInputUsingClass from "./useRefUsage/FocusInputUsingClass";
-import ForwardRefParent from "./useRefUsage/ForwardRefParent";
-import ParentUser from "./classUsage/ParentUser";
-import PortalDemo from "./PortalDemo";
+// import ContextApiUse from "./ContextApiUse";
+// import ParentComponentUseCallback from "./useCallbackusage/ParentComponentUseCallback";
+// import UseMemoUsageCounter from "./useMemoUsage/UseMemoUsageCounter";
+// import CounterUseReducer from "./useReducerUsage/CounterUseReducer";
+// import UseRefFile from "./useRefUsage/UseRefFile";
+// import FocusInputUsingClass from "./useRefUsage/FocusInputUsingClass";
+// import ForwardRefParent from "./useRefUsage/ForwardRefParent";
+// import ParentUser from "./classUsage/ParentUser";
+// import PortalDemo from "./PortalDemo";
 // import TodoInput from "./components/TodoInput";
 // import TodoList1 from "./components/TodoList1";
 // import TodoEdit from "./components/TodoEdit";
-import StateLiftingParent from "./stateLifting/StateLiftingParent";
-
+// import StateLiftingParent from "./stateLifting/StateLiftingParent";
+import ButtonAtomic from "./components/atomic/Button";
+import HeadingAtomic from "./components/atomic/Heading";
+import Card from "./components/molecule/Card";
 function App() {
-  const [userName, setUserName] = useState();
+  // const [userName, setUserName] = useState();
   useEffect(() => {
-    const data = {
-      name: "sen Debnath mrs.",
-    };
-    setUserName(data.name);
+    // const data = {
+    //   name: "sen Debnath mrs.",
+    // };
+    // setUserName(data.name);
   }, []);
   // const [listTodo, setlistTodo] = useState([]);
   // const [editFlag, setEditFlag] = useState(false);
@@ -55,8 +57,8 @@ function App() {
   //   setEditedIndex(index);
   // };
 
-  return (
-    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+  return (<>
+     {/* <UserContext.Provider value={{ loggedInUser: userName, setUserName }}> */}
       {/* <TodoInput addList={addList} editedItem={editedItem} />
       editFlag={editFlag}
       seteditedItem={seteditedItem}
@@ -84,8 +86,17 @@ function App() {
       {/* <ForwardRefParent/> */}
       {/* <ParentUser/> */}
       {/* <PortalDemo/> */}
-      <StateLiftingParent/>
-    </UserContext.Provider>
+      {/* <StateLiftingParent/> */}
+      {/* <HeadingAtomic title="barnali" subtitle="sen" size="large">heading atomic component</HeadingAtomic>
+      <ButtonAtomic type="SUCCESS" size="large" roundedCorner={true}>button atomic</ButtonAtomic> */}
+    <div className="parent">
+        <Card></Card>
+     <Card></Card>
+    </div>
+     
+     
+     {/* </UserContext.Provider> */}
+    </>
   );
 }
 
